@@ -1,6 +1,6 @@
-package com.spiral.community.dao;
+package com.nowcoder.community.dao;
 
-import com.spiral.community.entity.User;
+import com.nowcoder.community.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

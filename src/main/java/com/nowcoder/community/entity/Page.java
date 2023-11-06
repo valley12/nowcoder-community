@@ -1,4 +1,4 @@
-package com.spiral.community.entity;
+package com.nowcoder.community.entity;
 
 public class Page {
 
