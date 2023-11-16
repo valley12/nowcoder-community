@@ -1,5 +1,6 @@
 package com.nowcoder.community.controller;
 
+import com.nowcoder.community.annotation.LoginRequired;
 import com.nowcoder.community.entity.User;
 import com.nowcoder.community.service.UserService;
 import com.nowcoder.community.util.CommunityUtil;
@@ -45,11 +46,13 @@ public class UserController {
     @Autowired
     private HostHolder hostHolder;
 
+    @LoginRequired
     @RequestMapping(path="/setting",method = RequestMethod.GET)
     public String getSettingPage(){
         return "/site/setting";
     }
 
+    @LoginRequired
     @RequestMapping(path="/upload", method = RequestMethod.POST)
     public String uploadHeader(MultipartFile headerImage, Model model){
         if(headerImage==null){
@@ -89,9 +92,10 @@ public class UserController {
         response.setContentType("image/" + suffix);
         try(
                 OutputStream os = response.getOutputStream();
-                FileInputStream fis = new FileInputStream(fileName);) {
+                FileInputStream fis = new FileInputStream(fileName);
+                ) {
             byte[] buffer = new byte[1024];
-            int b = 0;
+            int b;
             while((b = fis.read(buffer)) != -1){
                 os.write(buffer,0,b);
 
