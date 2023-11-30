@@ -104,8 +104,25 @@ public class UserController {
             logger.error("读取头像失败" + e.getMessage());
         }
 
+    }
+
+    @LoginRequired
+    @RequestMapping(path = "password/modify", method = RequestMethod.POST)
+    public String modifyPassword(String oldPassword, String newPassword, Model model){
+
+        User user = hostHolder.getUser();
+        if(!CommunityUtil.md5(oldPassword + user.getSalt()).equals(user.getPassword())){
+            model.addAttribute("oldPasswordMsg","原密码错误!");
+            return "site/setting";
+        }
+        String salt = CommunityUtil.generateUUID().substring(0,5);
+        userService.updatePassword(user.getId(),CommunityUtil.md5((newPassword + salt)),salt);
+
+        return "redirect:/logout";
 
     }
+
+
 
 
 }

@@ -18,4 +18,10 @@ public interface CommunityConstant {
     */
    int REMEMBER_EXPIRED_SECONDS = 3600 * 24 * 100;
 
+   // 实体类型：帖子评论
+   int ENTITY_TYPE_POST_COMMENT = 1;
+   // 实体类型：评论
+   int ENTITY_TYPE_REPLY_COMMENT = 2;
+
+
 }
