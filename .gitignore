@@ -31,8 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/main/java/com/spiral/community/config/AlphaConfig.java
-/src/main/java/com/spiral/community/controller/AlphaController.java
+/src/main/java/com/nowcoder/community/config/AlphaConfig.java
+/src/main/java/com/nowcoder/community/controller/AlphaController.java
 /.mvn/
 /mvnw
 /mvnw.cmd

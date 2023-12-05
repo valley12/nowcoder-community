@@ -18,7 +18,7 @@ public class MessageService {
         return messageMapper.selectConversations(userId, offset, limit);
     }
 
-    public int findConversationsCount(int userId){
+    public int findConversationCount(int userId){
         return messageMapper.selectConversationCount(userId);
     }
 
