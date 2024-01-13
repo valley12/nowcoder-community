@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.HtmlUtils;
 
+import javax.print.DocFlavor;
 import java.util.List;
 
 @Service
@@ -46,7 +47,28 @@ public class MessageService {
         return messageMapper.insertMessage(message);
     }
 
+    public int addSystemMessage(Message message){
+        return messageMapper.insertMessage(message);
+    }
+
     public int readMessage(List<Integer> ids){
         return messageMapper.updateStatus(ids, 1);
     }
+
+    public Message findLatestMessage(int userId, String topic){
+        return messageMapper.selectLatestNotice(userId, topic);
+    }
+
+    public int findNoticeCount(int userId, String topic){
+        return messageMapper.selectNoticeCount(userId,topic);
+    }
+
+    public int findNoticeUnreadCount(int userId, String topic){
+        return messageMapper.selectNoticeUnreadCount(userId, topic);
+    }
+
+    public List<Message> findNotices(int userId, String topic, int offset, int limit){
+        return messageMapper.selectNotices(userId, topic, offset, limit);
+    }
+
 }

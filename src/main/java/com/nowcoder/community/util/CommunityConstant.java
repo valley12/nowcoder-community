@@ -22,7 +22,7 @@ public interface CommunityConstant {
     */
    int REMEMBER_EXPIRED_SECONDS = 3600 * 24 * 100;
 
-   // 实体类型：帖子评论
+   // 实体类型：帖子
    int ENTITY_TYPE_POST = 1;
    // 实体类型：评论
    int ENTITY_TYPE_COMMENT = 2;
@@ -47,8 +47,12 @@ public interface CommunityConstant {
    // 主题：关注
    String TOPIC_FOLLOW = "follow";
 
+   //主题：发帖
+   String TOPIC_PUBLISH = "publish";
+
    // 系统用户ID=1
    int SYSTEM_USER_ID = 1;
+
 
 
 

@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Event {
 
+    // 主题: 点赞 关注 评论
     private String topic;
     private int userId;
     private int entityType;

@@ -26,7 +26,6 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
-
     @Autowired
     private LikeService likeService;
 
@@ -48,6 +47,7 @@ public class HomeController {
             }
         }
         model.addAttribute("discussPosts",discussPosts);
+
         return "/index";
     }
 

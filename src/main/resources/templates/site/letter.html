@@ -30,7 +30,12 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link position-relative" href="notice.html">系统通知<span class="badge badge-danger">27</span></a>
+							<a class="nav-link position-relative" th:href="@{/notice/list}">
+								系统通知<span class="badge badge-danger"
+											  th:utext="${noticeUnreadCount}"
+											  th:if="${noticeUnreadCount!=0}">27
+								</span>
+							</a>
 						</li>
 					</ul>
 					<button type="button" class="btn btn-primary btn-sm position-absolute rt-0" data-toggle="modal" data-target="#sendModal">发私信</button>
@@ -82,7 +87,7 @@
 				<ul class="list-unstyled">
 					<li class="media pb-3 pt-3 mb-3 border-bottom position-relative" th:each="map:${conversations}">
 						<span class="badge badge-danger" th:text="${map.unreadCount}" th:if="${map.unreadCount!=0}" >3</span>
-						<a th:href="profile.html">
+						<a th:href="@{|/user/profile/${map.targetUser.id}|}">
 							<img th:src="${map.targetUser.headerUrl}" class="mr-4 rounded-circle user-header" alt="用户头像" >
 						</a>
 						<div class="media-body">
@@ -109,8 +114,8 @@
 					</li>
 				</ul>
 				<!-- 分页 -->
-				<nav class="mt-5">
-					<ul class="pagination justify-content-center" th:replace="index::pagination">
+				<nav class="mt-5" th:replace="index::pagination">
+					<ul class="pagination justify-content-center" >
 						<li class="page-item"><a class="page-link" href="#">首页</a></li>
 						<li class="page-item disabled"><a class="page-link" href="#">上一页</a></li>
 						<li class="page-item active"><a class="page-link" href="#">1</a></li>
